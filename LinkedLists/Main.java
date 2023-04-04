@@ -13,7 +13,10 @@ public class Main {
         int command = 0;
 
         while (command != 6) {
+            System.out.print("Please enter your command: ");
             command = input.nextInt();
+            System.out.println();
+            
             switch (command) {
                 case 1 -> add(input, list);
                 case 2 -> search(input, list);

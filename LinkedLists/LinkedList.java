@@ -11,11 +11,7 @@ public class LinkedList {
         return head == null;
     }
 
-    public void add(int data) {
-        head = add(head, data);
-    }
-
-    private Node add(Node head, int data) {
+    public Node add(int data) {
         if (head == null) {
             head = new Node(data);
             return head;
@@ -28,7 +24,7 @@ public class LinkedList {
                 helpPtr = helpPtr.getNext();
             }
 
-            Node temp = new Node(data, helpPtr.getNext());
+            Node temp = new Node(data);
             helpPtr.setNext(temp);
         }
         return head;
@@ -38,8 +34,9 @@ public class LinkedList {
         Node helpPtr = head;
 
         while (helpPtr != null) {
-            System.out.println(helpPtr.getData() + " ");
+            System.out.print(helpPtr.getData() + " ");
             helpPtr = helpPtr.getNext();
         }
+        System.out.println();
     }
 }
