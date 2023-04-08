@@ -16,7 +16,7 @@ public class Main {
             System.out.print("Please enter your command: ");
             command = input.nextInt();
             System.out.println();
-            
+
             switch (command) {
                 case 1 -> add(input, list);
                 case 2 -> search(input, list);
@@ -48,11 +48,39 @@ public class Main {
     }
 
     public static void search(Scanner input, LinkedList list) {
+        System.out.print("What value would you like to search for? ");
+        int value = input.nextInt();
+        int idx = list.search(value);
 
+        if (!list.isEmpty()) {
+            if (idx == -1) {
+                System.out.println("Value was not found in the list.");
+            }
+            else {
+                System.out.println("Value was found at index " + idx + ".");
+            }
+        }
     }
 
-    public static void remove(Scanner input, LinkedList list) {
+    public static LinkedList remove(Scanner input, LinkedList list) {
+        System.out.println("What value would you like to remove? ");
+        int value = input.nextInt();
+        int idx = list.search(value);
+    
 
+        if (!list.isEmpty()) {
+            if (idx == -1) {
+                System.out.println("Error: Value not found.");
+            }
+            else {
+                list.remove(value);
+            }
+        }
+        else {
+            System.out.println("Error: List is currently empty.");
+        }
+
+        return list;
     }
 
     public static void print(LinkedList list) {
@@ -60,11 +88,19 @@ public class Main {
             list.print();
         }
         else {
-            System.out.println("ERROR: LIST EMPTY");
+            System.out.println("Error: List empty.");
         }
     }
 
     public static void sumNodes(LinkedList list) {
+        
 
+        if (!list.isEmpty()) {
+            int value = list.sumNodes(list);
+            System.out.println("Sum of all nodes is " + value);
+        }
+        else {
+            System.out.println("Error: List empty.");
+        }
     }
 }
